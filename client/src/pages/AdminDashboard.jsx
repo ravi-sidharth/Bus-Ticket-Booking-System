@@ -115,17 +115,15 @@ export default function AdminDashboard() {
       </div>
 
       <div className="bg-white shadow p-4 rounded">
-        <h3 className="text-lg font-bold mb-2">All Bookings (with Bus & User)</h3>
+        <h3 className="text-lg font-bold mb-2">All Bookings</h3>
         <table className="w-full border">
           <thead>
-            <tr className="bg-gray-200 text-left">
+            <tr className="bg-gray-200 text-center">
               <th className="p-2 border">Bus</th>
               <th className="p-2 border">Bus No</th>
               <th className="p-2 border">Route</th>
               <th className="p-2 border">User</th>
-              <th className="p-2 border">Email</th>
               <th className="p-2 border">Seats</th>
-              <th className="p-2 border">Booked At</th>
             </tr>
           </thead>
           <tbody>
@@ -136,9 +134,7 @@ export default function AdminDashboard() {
                   <td className="p-2 border">{b.bus?.busNumber}</td>
                   <td className="p-2 border">{b.bus?.from} → {b.bus?.to}</td>
                   <td className="p-2 border">{b.user?.userName}</td>
-                  <td className="p-2 border">{b.user?.email}</td>
                   <td className="p-2 border">{b.seats.join(", ")}</td>
-                  <td className="p-2 border">{new Date(b.createdAt).toLocaleString()}</td>
                 </tr>
               ))
             ) : (

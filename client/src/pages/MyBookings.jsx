@@ -32,18 +32,18 @@ export default function MyBookings() {
       {bookings.length === 0 ? (
         <p>No bookings yet.</p>
       ) : (
-        <div className="grid gap-4">
+        <div className="grid grid-cols-4 gap-4">
           {bookings.map((b) => (
             <div key={b._id} className="border p-4 rounded shadow">
               <h3 className="font-bold">{b.bus.name} ({b.bus.busNumber})</h3>
               <p>{b.bus.from} → {b.bus.to}</p>
               <p>Seat: {b.seats.join(", ")}</p>
-              <button
+              <div className="text-right"><button
                 onClick={() => cancelBooking(b)}
-                className="bg-red-500 text-white px-3 py-1 rounded mt-2"
+                className="bg-red-500 text-white px-3 py-1 rounded mt-2 "
               >
                 Cancel
-              </button>
+              </button></div>
             </div>
           ))}
         </div>

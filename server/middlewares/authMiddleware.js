@@ -8,12 +8,17 @@ const authenticate = (req, res, next) => {
     req.user = payload;
     next();
   } catch (err) {
-    res.status(401).json({ message: "Invalid token", success: false });
+    res.status(401).json({ 
+      message: "Invalid token", 
+      success: false });
   }
 };
 
 const isAdmin = (req, res, next) => {
-  if (req.user.role !== 'admin') return res.status(403).json({ message: "You are not authorized person to access", success: false });
+  if (req.user.role !== 'admin') return res.status(403).json({ 
+    success: false ,
+    message: "You are not authorized person to access"
+  });
   next();
 };
 

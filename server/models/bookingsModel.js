@@ -16,6 +16,16 @@ const bookingSchema = new mongoose.Schema({
     type: Number, 
     default: 0 
   },
+  paymentMode: { 
+    type: String, 
+    enum: ["cash", "online"] },
+  paymentStatus: { 
+    type: String, 
+    enum: ["pending", "created", "paid"], 
+    default: "pending" 
+  },
+  razorpayOrderId: String,
+  razorpayPaymentId: String,
 }, 
 { timestamps: true }
 );

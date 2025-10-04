@@ -21,40 +21,69 @@ const AddBus = async (req, res) => {
       arrival,
       price,
       totalSeats,
-      seats });
+      seats
+     });
     await newBus.save();
-    res.status(201).json({ success: true, message: "Bus created successfully", data: newBus });
+    res.status(201).json({ 
+      success: true, 
+      message: "Bus created successfully", 
+      data: newBus 
+    });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ 
+      success: false, 
+      message: err.message 
+    });
   }
 };
 
 const GetAllBuses = async (req, res) => {
   try {
     const buses = await Bus.find();
-    res.status(200).json({ success: true, data: buses });
+    res.status(200).json({ 
+      success: true, 
+      data: buses 
+    });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ 
+      success: false, 
+      message: err.message 
+    });
   }
 };
 
 const GetBusById = async (req, res) => {
   try {
     const bus = await Bus.findById(req.params.id).populate("seats.bookedBy", "userName email");
-    if (!bus) return res.status(404).json({ success: false, message: "Bus not found" });
-    res.status(200).json({ success: true, data: bus });
+    if (!bus) return res.status(404).json({ 
+      success: false, 
+      message: "Bus not found" 
+    });
+    res.status(200).json({ 
+      success: true, 
+      data: bus 
+    });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ 
+      success: false, 
+      message: err.message 
+    });
   }
 };
 
 const DeleteBus = async (req, res) => {
   try {
     await Bus.findByIdAndDelete(req.params.id);
-    res.status(200).json({ success: true, message: "Bus deleted successfully" });
+    res.status(200).json({ 
+      success: true, 
+      message: "Bus deleted successfully" 
+    });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ 
+      success: false, 
+      message: err.message 
+    });
   }
 };
 
@@ -62,7 +91,10 @@ const ResetBus = async (req, res) => {
   try {
     const bus = await Bus.findById(req.params.id);
     if (!bus) {
-      return res.status(404).json({ success: false, message: "Bus not found" });
+      return res.status(404).json({ 
+        success: false, 
+        message: "Bus not found" 
+      });
     }
 
     bus.seats.forEach(seat => {

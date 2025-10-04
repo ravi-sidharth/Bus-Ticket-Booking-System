@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {authenticate,isAdmin} = require("../middlewares/authMiddleware");
 const {
-  AddBus, GetAllBuses, GetBusById, DeleteBus, GetBusesByFromAndTo, ResetBus
+  AddBus, GetAllBuses, GetBusById, DeleteBus, ResetBus
 } = require("../Controllers/busController");
 
 router.get("/", GetAllBuses);
