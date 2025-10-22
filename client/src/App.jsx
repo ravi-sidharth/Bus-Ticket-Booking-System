@@ -10,17 +10,18 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import './index.css'
 
 export default function App() {
+
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={ <Login />} />
 \        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
+              <Navbar />
               <UserDashboard />
             </ProtectedRoute>
           }
@@ -29,6 +30,7 @@ export default function App() {
           path="/bus/:id"
           element={
             <ProtectedRoute>
+              <Navbar />
               <BusDetails />
             </ProtectedRoute>
           }
@@ -37,6 +39,7 @@ export default function App() {
           path="/my-bookings"
           element={
             <ProtectedRoute>
+              <Navbar />
               <MyBookings />
             </ProtectedRoute>
           }
@@ -45,6 +48,7 @@ export default function App() {
           path="/admin"
           element={
             <ProtectedRoute role="admin">
+              <Navbar />
               <AdminDashboard />
             </ProtectedRoute>
           }

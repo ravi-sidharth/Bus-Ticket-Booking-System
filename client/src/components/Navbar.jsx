@@ -9,6 +9,7 @@ export default function Navbar() {
     window.location.href = "/login";
   };
 
+
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between">
       <h1 className="text-xl font-bold">🚌 Bus Booking</h1>
