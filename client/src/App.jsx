@@ -8,14 +8,23 @@ import BusDetails from "./pages/BusDetails";
 import MyBookings from "./pages/MyBookings";
 import ProtectedRoute from "./components/ProtectedRoute";
 import './index.css'
+import DLValidation from "./components/kyc/DLValidation";
+import IDValidation from "./components/kyc/IDValidation";
+import SelfieValidation from "./components/kyc/SelfieValidation";
+import KYCSuccess from "./components/kyc/KYCSuccess";
+import KYCFail from "./components/kyc/KYCFail";
 
 export default function App() {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <Login />} />
-\        <Route path="/login" element={<Login />} />
+      <Route path="/" element={<DLValidation />} />
+      <Route path="/kyc/id-validation" element={<IDValidation />} />
+      <Route path="/kyc/selfie" element={<SelfieValidation />} />
+      <Route path="/kyc/success" element={<KYCSuccess />} />
+      <Route path="/kyc/fail" element={<KYCFail />} />
+\       <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route
           path="/dashboard"
